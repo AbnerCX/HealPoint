@@ -28,6 +28,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'Secret Key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+AUTH_USER_MODEL = 'users.UserHealPoint'
+
 ALLOWED_HOSTS = []
 
 
@@ -41,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    
+    'users',  # Custom user app
 ]
 
 MIDDLEWARE = [
