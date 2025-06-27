@@ -13,8 +13,17 @@ from rest_framework.mixins import (
 
 from users.models import UserHealPoint
 from .serializers import UserSerializer, RegisterSerializer
+from drf_spectacular.utils import extend_schema_view, extend_schema
 
+from .schemas import get_me_schema  
 
+@extend_schema_view(
+    list=extend_schema(tags=["users"]),
+    retrieve=extend_schema(tags=["users"]),
+    create=extend_schema(tags=["users"]),
+    update=extend_schema(tags=["users"]),
+    partial_update=extend_schema(tags=["users"])
+)
 class UserViewSet(
     CreateModelMixin,
     ListModelMixin,
@@ -35,6 +44,7 @@ class UserViewSet(
             return RegisterSerializer
         return UserSerializer
 
+    @get_me_schema 
     @action(
         detail=False,
         methods=["get"],
