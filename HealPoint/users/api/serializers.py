@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.core.validators import RegexValidator
 from django.contrib.auth import authenticate
 from users.models import UserHealPoint
 
@@ -20,7 +21,15 @@ class RegisterSerializer(serializers.ModelSerializer):
         model = UserHealPoint
         fields = ["id","phone_number", "password"]
         read_only_fields = ["id"]
-        
+
+    def validate_phone_number(self, value):
+        phone_regex = RegexValidator(
+            regex= r"^\d{10}$",
+            message="Phone number must be 10 digits long without country code.",
+        )
+        phone_regex(value)
+        return value    
+    
     def create(self, validated_data):
         """
         Create a new user instance with the provided validated data.
