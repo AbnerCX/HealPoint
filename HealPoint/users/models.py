@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
@@ -29,6 +30,7 @@ class CustomUserManager(BaseUserManager):
     
 class UserHealPoint(AbstractBaseUser, PermissionsMixin):
     
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     phone_number = models.CharField(max_length=10, unique=True, verbose_name="phone number")
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
