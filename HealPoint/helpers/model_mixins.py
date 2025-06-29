@@ -16,7 +16,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.functional import cached_property
 from django.db.models import IntegerChoices
 
-from HealPoint.constants.locations import (
+from constants.locations import (
     MexicanStates,
     Countries,
     Nationalities,
