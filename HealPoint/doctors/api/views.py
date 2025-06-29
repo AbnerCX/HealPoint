@@ -27,6 +27,6 @@ class DoctorViewSet(
 
     @action(detail=False, methods=["get"], url_path="by-user-phone/(?P<phone_number>[^/]+)",)
     def get_by_user_phone(self, request:Request, phone_number: str) -> Response:
-        obj = get_object_or_404(Doctor, user__phone=phone_number)
+        obj = get_object_or_404(Doctor, user__phone_number=phone_number)
         serializer = self.get_serializer(obj)
         return Response(data=serializer.data)
