@@ -146,7 +146,7 @@ REST_FRAMEWORK = {
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'HealPoint API',
-    'DESCRIPTION': 'Documentación generada con drf_spectacular',
+    'DESCRIPTION': 'Documentation generated with drf_spectacular',
     'VERSION': '1.0.0',
 }
 
