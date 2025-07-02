@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'users',
     'stores',
     'doctors',
-    'patients',
 ]
 
 MIDDLEWARE = [
@@ -146,7 +145,7 @@ REST_FRAMEWORK = {
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'HealPoint API',
-    'DESCRIPTION': 'Documentation generated with drf_spectacular',
+    'DESCRIPTION': 'Documentación generada con drf_spectacular',
     'VERSION': '1.0.0',
 }
 
